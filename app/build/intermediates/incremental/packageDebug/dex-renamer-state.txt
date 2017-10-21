@@ -1,0 +1,7 @@
+#Sat Oct 21 17:08:32 CST 2017
+base.0=E\:\\android\\Phlong\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_542d03742649e2ff5f1b99963bbfe3457f20099a
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=E\:\\android\\Phlong\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_eca85b9fab818eed6caa8391fd806465ad4b9023\\classes.dex
+base.1=E\:\\android\\Phlong\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_eca85b9fab818eed6caa8391fd806465ad4b9023
+file.0=E\:\\android\\Phlong\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_542d03742649e2ff5f1b99963bbfe3457f20099a\\classes.dex
