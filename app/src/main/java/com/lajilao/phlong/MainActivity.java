@@ -2,8 +2,10 @@ package com.lajilao.phlong;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -68,6 +70,16 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         if(fg1 != null)fragmentTransaction.hide(fg1);
         if(fg2 != null)fragmentTransaction.hide(fg2);
         if(fg3 != null)fragmentTransaction.hide(fg3);
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode==KeyEvent.KEYCODE_BACK){
+            Intent i= new Intent(Intent.ACTION_MAIN);  //主启动，不期望接收数据
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); //新的activity栈中开启，或者已经存在就调到栈前
+            i.addCategory(Intent.CATEGORY_HOME);       //添加种类，为设备首次启动显示的页面
+            startActivity(i);
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
 }
