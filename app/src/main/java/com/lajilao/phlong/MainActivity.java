@@ -1,110 +1,73 @@
 package com.lajilao.phlong;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v7.app.AppCompatActivity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.view.Window;
-import android.widget.FrameLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.lajilao.phlong.tabs.SalesFragment;
-import com.lajilao.phlong.tabs.TaskFragment;
-import com.lajilao.phlong.tabs.UserFragment;
 
-public class MainActivity extends FragmentActivity {
-    private FrameLayout mContent;
-    private RadioGroup mRadioGroup;
-    private RadioButton mTaskGroup;
-    private RadioButton mSalesGroup;
-    private RadioButton mUsersGroup;
+public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener{
 
-    static final int NUM_ITEMS = 4;//一共四个fragment
+    private RadioGroup rg_tab_bar;
+    private RadioButton rb_task;
+
+    //Fragment Object
+    private ViewFragment fg1,fg2,fg3;
+    private FragmentManager fManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
-        initView();
-        initData();
-    }
-
-    protected void initView() {
-        mContent = (FrameLayout) findViewById(R.id.mContent); //tab上方的区域
-        mRadioGroup = (RadioGroup) findViewById(R.id.mRadioGroup);  //底部的四个tab
-        mTaskGroup = (RadioButton) findViewById(R.id.mTaskGroup);
-        mSalesGroup = (RadioButton) findViewById(R.id.mSalesGroup);
-        mUsersGroup = (RadioButton) findViewById(R.id.mUsersGroup);
-
-        //监听事件：为底部的RadioGroup绑定状态改变的监听事件
-        mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                int index = 0;
-                switch (checkedId) {
-                    case R.id.mTaskGroup:
-                        index = 0;
-                        break;
-                    case R.id.mSalesGroup:
-                        index = 1;
-                        break;
-                    case R.id.mUsersGroup:
-                        index = 2;
-                        break;
-                }
-                Fragment fragment = (Fragment) fragments.instantiateItem(mContent, index);
-                fragments.setPrimaryItem(mContent, 0, fragment);
-                fragments.finishUpdate(mContent);
-
-            }
-        });
+        fManager = getFragmentManager();
+        rg_tab_bar = (RadioGroup) findViewById(R.id.rg_tab_bar);
+        rg_tab_bar.setOnCheckedChangeListener(this);
+        //获取第一个单选按钮，并设置其为选中状态
+        rb_task = (RadioButton) findViewById(R.id.rb_task);
+        rb_task.setChecked(true);
     }
 
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        mRadioGroup.check(R.id.mTaskGroup);
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        FragmentTransaction fTransaction = fManager.beginTransaction();
+        hideAllFragment(fTransaction);
+        switch (checkedId){
+            case R.id.rb_task:
+                if(fg1 == null){
+                    fg1 = new ViewFragment("第一个Fragment");
+                    fTransaction.add(R.id.ly_content,fg1);
+                }else{
+                    fTransaction.show(fg1);
+                }
+                break;
+            case R.id.rb_sales:
+                if(fg2 == null){
+                    fg2 = new ViewFragment("第二个Fragment");
+                    fTransaction.add(R.id.ly_content,fg2);
+                }else{
+                    fTransaction.show(fg2);
+                }
+                break;
+            case R.id.rb_user:
+                if(fg3 == null){
+                    fg3 = new ViewFragment("第三个Fragment");
+                    fTransaction.add(R.id.ly_content,fg3);
+                }else{
+                    fTransaction.show(fg3);
+                }
+                break;
+        }
+        fTransaction.commit();
     }
 
-
-    FragmentStatePagerAdapter fragments = new FragmentStatePagerAdapter(getSupportFragmentManager()) {
-
-        @Override
-        public int getCount() {
-            return NUM_ITEMS;//一共有三个Fragment
-        }
-
-        //进行Fragment的初始化
-        @Override
-        public Fragment getItem(int i) {
-            Fragment fragment = null;
-            switch (i) {
-                case 0://待办任务
-                    fragment = new TaskFragment();
-                    break;
-                case 1://销售管理
-                    fragment = new SalesFragment();
-                    break;
-
-                case 2://我的
-                    fragment = new UserFragment();
-                    break;
-                default:
-                    new TaskFragment();
-                    break;
-            }
-
-            return fragment;
-        }
-    };
-
-    protected void initData() {
-
+    //隐藏所有Fragment
+    private void hideAllFragment(FragmentTransaction fragmentTransaction){
+        if(fg1 != null)fragmentTransaction.hide(fg1);
+        if(fg2 != null)fragmentTransaction.hide(fg2);
+        if(fg3 != null)fragmentTransaction.hide(fg3);
     }
 
 }
-
