@@ -1,18 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.lajilao.phlong.MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!--tab上方的显示区域-->
+    <FrameLayout
+        android:id="@+id/mContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/mRadioGroup">
 
-</android.support.constraint.ConstraintLayout>
+    </FrameLayout>
+
+    <!--底下的四个tab-->
+    <RadioGroup
+        android:id="@+id/mRadioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:background="@color/tab_bg"  >
+
+        <RadioButton
+            android:id="@+id/mTaskGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="@string/task"
+            android:textColor="@drawable/selector_tab_text_color"
+            android:background="@color/tab_bg"
+            android:drawableTop="@drawable/selector_tab_task"
+            />
+
+        <RadioButton
+            android:id="@+id/mSalesGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="@string/sales"
+            android:textColor="@drawable/selector_tab_text_color"
+            android:background="@color/tab_bg"
+            android:drawableTop="@drawable/selector_tab_sales"
+            />
+
+        <RadioButton
+            android:id="@+id/mUsersGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="@string/user"
+            android:textColor="@drawable/selector_tab_text_color"
+            android:background="@color/tab_bg"
+            android:drawableTop="@drawable/selector_tab_user"
+            android:checked="true"
+            />
+    </RadioGroup>
+</RelativeLayout>
+

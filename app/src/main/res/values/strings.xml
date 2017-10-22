@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">Phlong</string>
+    <string name="app_name">phoneService</string>
+
+
+    <string name="task">待办任务</string>
+    <string name="sales">销售管理</string>
+    <string name="user">我的</string>
+
+
 </resources>
