@@ -5,25 +5,25 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:background="@color/bg_white">
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="45dp"-->
+        <!--android:background="@color/bg_white">-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="销售管理"
-            android:textColor="@color/gray"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            style="@style/titleTheme"/>
-    </RelativeLayout>
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="销售管理"-->
+            <!--android:textColor="@color/grey"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--style="@style/titleTheme"/>-->
+    <!--</RelativeLayout>-->
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@mipmap/firstpagelink"/>
+    <!--<ImageView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0.5dp"-->
+        <!--android:background="@mipmap/firstpagelink"/>-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -92,7 +92,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:background="@mipmap/firstpagelink2"/>]
+            android:background="@mipmap/firstpagelink2"/>
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
