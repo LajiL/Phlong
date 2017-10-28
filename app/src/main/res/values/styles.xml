@@ -17,5 +17,10 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <style name="titleTheme">
+        <item name="android:textColor">@color/bg_white</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
 
 </resources>
