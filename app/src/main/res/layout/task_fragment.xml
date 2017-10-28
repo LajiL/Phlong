@@ -5,33 +5,29 @@
     android:layout_height="match_parent"
     android:background="@color/bg_gray">
     <!--呼叫任务-->
-    <RadioGroup
+
+    <Button
+        android:id="@+id/call_task"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/tasks">
-        <Button
-            android:id="@+id/call_task"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/task_sub_button"
-            android:text="呼叫任务"
-            android:background="@color/orange"/>
-        <!--待处理汇款-->
-        <Button
-            android:id="@+id/pending_remittance"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/task_sub_button"
-            android:text="待处理汇款"
-            android:background="@color/skyblue"/>
-        <!--回访计划-->
-        <Button
-            android:id="@+id/visit_plan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/task_sub_button"
-            android:text="回访计划"
-            android:background="@color/limegreen"/>
-    </RadioGroup>
+        android:layout_height="wrap_content"
+        style="@style/task_sub_button"
+        android:text="呼叫任务"
+        android:background="@color/orange"/>
+    <!--待处理汇款-->
+    <Button
+        android:id="@+id/pending_remittance"
+        style="@style/task_sub_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/skyblue"
+        android:text="待处理汇款" />
+    <!--回访计划-->
+    <Button
+        android:id="@+id/visit_plan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/task_sub_button"
+        android:text="回访计划"
+        android:background="@color/limegreen"/>
 
 </LinearLayout>

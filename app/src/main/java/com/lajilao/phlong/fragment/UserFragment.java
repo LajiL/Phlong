@@ -1,4 +1,4 @@
-package com.lajilao.phlong;
+package com.lajilao.phlong.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+
+import com.lajilao.phlong.R;
 
 /**
  * A simple {@link Fragment} subclass.

@@ -11,6 +11,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.lajilao.phlong.fragment.TaskFragment;
+import com.lajilao.phlong.fragment.UserFragment;
+import com.lajilao.phlong.fragment.SalesFragment;
 
 public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener{
 
@@ -18,7 +21,8 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     private RadioButton rb_task;
 
     //Fragment Object
-    private ViewFragment fg1,fg2;
+    private TaskFragment fg1;
+    private SalesFragment fg2;
     private UserFragment fg3;
     private FragmentManager fManager;
 
@@ -45,8 +49,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
                 tv.setText("呼叫任务");
                 layout.setVisibility(View.VISIBLE);
                 if(fg1 == null){
-                    fg1 = new ViewFragment();
-                    fg1.setResource(R.layout.task_fragment);
+                    fg1 = new TaskFragment();
                     fTransaction.add(R.id.ly_content,fg1);
                 }else{
                     fTransaction.show(fg1);
@@ -56,8 +59,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
                 tv.setText("销售管理");
                 layout.setVisibility(View.VISIBLE);
                 if(fg2 == null){
-                    fg2 = new ViewFragment();
-                    fg2.setResource(R.layout.sales_fragment);
+                    fg2 = new SalesFragment();
                     fTransaction.add(R.id.ly_content,fg2);
                 }else{
                     fTransaction.show(fg2);
