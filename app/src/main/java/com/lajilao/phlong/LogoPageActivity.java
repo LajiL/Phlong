@@ -22,6 +22,6 @@ public class LogoPageActivity extends Activity {
                 LogoPageActivity.this.startActivity(mainIntent);
                 LogoPageActivity.this.finish();
             }
-        }, 3000);
+        }, 1000);
     }
 }

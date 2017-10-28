@@ -2,6 +2,7 @@ package com.lajilao.phlong;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.support.annotation.LayoutRes;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,16 +11,21 @@ import android.widget.TextView;
 
 public class ViewFragment extends Fragment {
 
-    private String content;
-    public ViewFragment(String content) {
-        this.content = content;
-    }
+    private @LayoutRes int resource;
+
+    public ViewFragment(){}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fg_content,container,false);
-        TextView txt_content = (TextView) view.findViewById(R.id.txt_content);
-        txt_content.setText(content);
+        View view = inflater.inflate(resource,container,false);
         return view;
+    }
+
+    public @LayoutRes int getResource() {
+        return resource;
+    }
+
+    public void setResource(@LayoutRes int resource) {
+        this.resource = resource;
     }
 }
