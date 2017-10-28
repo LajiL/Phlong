@@ -1,9 +1,9 @@
 package com.lajilao.phlong;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -19,21 +19,21 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     private RadioButton rb_task;
 
     //Fragment Object
-    private ViewFragment fg1,fg2,fg3;
+    private ViewFragment fg1,fg2;
+    private UserFragment fg3;
     private FragmentManager fManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        fManager = getFragmentManager();
+        fManager = getSupportFragmentManager();
         rg_tab_bar = (RadioGroup) findViewById(R.id.rg_tab_bar);
         rg_tab_bar.setOnCheckedChangeListener(this);
         //获取第一个单选按钮，并设置其为选中状态
         rb_task = (RadioButton) findViewById(R.id.rb_task);
         rb_task.setChecked(true);
     }
-
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -67,8 +67,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
             case R.id.rb_user:
                 layout.setVisibility(View.GONE);
                 if(fg3 == null){
-                    fg3 = new ViewFragment();
-                    fg3.setResource(R.layout.user_fragment);
+                    fg3 = new UserFragment();
                     fTransaction.add(R.id.ly_content,fg3);
                 }else{
                     fTransaction.show(fg3);

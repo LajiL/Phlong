@@ -5,4 +5,7 @@
     <string name="tab_menu_task">待办任务</string>
     <string name="tab_menu_sales">销售管理</string>
     <string name="tab_menu_user">我的</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
