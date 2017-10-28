@@ -12,7 +12,6 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-
 public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener{
 
     private RadioGroup rg_tab_bar;
