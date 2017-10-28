@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
                 layout.setVisibility(View.GONE);
                 if(fg3 == null){
                     fg3 = new ViewFragment();
-                    fg3.setResource(R.layout.fg_content);
+                    fg3.setResource(R.layout.user_fragment);
                     fTransaction.add(R.id.ly_content,fg3);
                 }else{
                     fTransaction.show(fg3);
