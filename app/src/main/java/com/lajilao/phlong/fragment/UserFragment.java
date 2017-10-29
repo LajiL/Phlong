@@ -2,15 +2,20 @@ package com.lajilao.phlong.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.ProgressBar;
 
 import com.lajilao.phlong.R;
+import com.lajilao.phlong.utils.UserTools;
+import com.lajilao.phlong.utils.UserToolsAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,24 +23,22 @@ import com.lajilao.phlong.R;
 public class UserFragment extends Fragment {
 
     private View view;
-    private ProgressBar progressBar;
-    private String[] data = { "Apple","Banana","Orange","Watermelon","pear","Grape","Pineapple",
-            "Strawberry","Cherry","Mango","Apple","Banana","Orange",
-            "Watermelon","pear","Grape","Pineapple",
-            "Strawberry","Cherry","Mango"};
+    //private ProgressBar progressBar;
+    private List<UserTools> userToolsList = new ArrayList<UserTools>();
 
     public UserFragment() {
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.user_fragment, container, false);
+        initUserTools();
+        RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.user_tools_recyclerview);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
+        UserToolsAdapter adapter = new UserToolsAdapter(userToolsList);
+        recyclerView.setAdapter(adapter);
         return view;
     }
 
@@ -44,11 +47,18 @@ public class UserFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 //        progressBar = (ProgressBar) view.findViewById(R.id.user_progress_bar);
 //        progressBar.setVisibility(View.GONE);
+    }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                getActivity(),android.R.layout.simple_expandable_list_item_1,data);
-        ListView listView = (ListView)view.findViewById(R.id.user_todo_listview);
-        listView.setAdapter(adapter);
+    private void initUserTools() {
+
+        UserTools calendar = new UserTools("日程",R.drawable.user_tools_calendar_pic);
+        userToolsList.add(calendar);
+
+        UserTools mails = new UserTools("邮件",R.drawable.user_tools_mails_pic);
+        userToolsList.add(mails);
+
+        UserTools settings = new UserTools("设置",R.drawable.user_tools_setting_pic);
+        userToolsList.add(settings);
 
     }
 
