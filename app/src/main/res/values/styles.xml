@@ -27,4 +27,16 @@
         <item name="android:layout_marginRight">10dp</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
+
+    <style name="call_task_tab">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">#FFA500</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
 </resources>
