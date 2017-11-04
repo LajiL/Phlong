@@ -23,8 +23,8 @@
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/user_panel_layout"
-        android:layout_width="0dp"
-        android:layout_height="197dp"
+        android:layout_width="wrap_content"
+        android:layout_height="164dp"
         app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -38,42 +38,40 @@
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="11dp"
             android:layout_marginStart="11dp"
-            android:layout_marginTop="38dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.142"
+            app:layout_constraintVertical_bias="0.387"
             app:srcCompat="@color/text_yellow" />
 
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/user_todo_layout"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:layout_marginTop="0dp"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user_panel_layout"
-        app:layout_constraintVertical_bias="0.0">
+        tools:layout_editor_absoluteX="0dp">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/user_tools_recyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+        <ListView
+            android:id="@+id/user_tools_listview"
+            android:layout_width="374dp"
+            android:layout_height="393dp"
             android:layout_marginBottom="0dp"
             android:layout_marginLeft="0dp"
-            android:layout_marginRight="0dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginStart="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.538"
+            app:layout_constraintHorizontal_bias="0.52"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            tools:layout_constraintLeft_creator="1"
-            tools:layout_constraintTop_creator="1" />
+            app:layout_constraintVertical_bias="1.0"
+            tools:layout_editor_absoluteX="2dp"></ListView>
 
     </android.support.constraint.ConstraintLayout>
 

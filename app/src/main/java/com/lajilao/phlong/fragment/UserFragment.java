@@ -2,13 +2,13 @@ package com.lajilao.phlong.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.lajilao.phlong.R;
 import com.lajilao.phlong.utils.UserTools;
@@ -34,11 +34,18 @@ public class UserFragment extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.user_fragment, container, false);
         initUserTools();
-        RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.user_tools_recyclerview);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(layoutManager);
-        UserToolsAdapter adapter = new UserToolsAdapter(userToolsList);
-        recyclerView.setAdapter(adapter);
+        UserToolsAdapter adapter = new UserToolsAdapter(getActivity(),
+                R.layout.user_tools,userToolsList);
+        ListView listView = (ListView) view.findViewById(R.id.user_tools_listview);
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                UserTools userTools = userToolsList.get(position);
+                Toast.makeText(getActivity(),userTools.getName(),Toast.LENGTH_SHORT).show();
+            }
+        });
+
         return view;
     }
 
@@ -51,14 +58,32 @@ public class UserFragment extends Fragment {
 
     private void initUserTools() {
 
-        UserTools calendar = new UserTools("日程",R.drawable.user_tools_calendar_pic);
+        UserTools calendar = new UserTools("日程",R.drawable.user_tools_testpng);
         userToolsList.add(calendar);
 
-        UserTools mails = new UserTools("邮件",R.drawable.user_tools_mails_pic);
+        UserTools mails = new UserTools("邮件",R.drawable.user_tools_testpng);
         userToolsList.add(mails);
 
-        UserTools settings = new UserTools("设置",R.drawable.user_tools_setting_pic);
+        UserTools settings = new UserTools("设置",R.drawable.user_tools_testpng);
         userToolsList.add(settings);
+
+        UserTools calendar2 = new UserTools("日程2",R.drawable.user_tools_testpng);
+        userToolsList.add(calendar2);
+
+        UserTools mails2 = new UserTools("邮件2",R.drawable.user_tools_testpng);
+        userToolsList.add(mails2);
+
+        UserTools settings2 = new UserTools("设置2",R.drawable.user_tools_testpng);
+        userToolsList.add(settings2);
+
+        UserTools calendar3 = new UserTools("日程3",R.drawable.user_tools_testpng);
+        userToolsList.add(calendar3);
+
+        UserTools mails3 = new UserTools("邮件3",R.drawable.user_tools_testpng);
+        userToolsList.add(mails3);
+
+        UserTools settings3 = new UserTools("设置3",R.drawable.user_tools_testpng);
+        userToolsList.add(settings3);
 
     }
 
